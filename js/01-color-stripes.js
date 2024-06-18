@@ -93,7 +93,7 @@ $('.collection div').hover(
   function () {
     $(this).css({
       flex: 1,
-      transition: 'flex 0s ease-in-out',
+      transition: 'flex 1s ease-in-out',
 
       background: getRandomGradientColor('red')
     });
