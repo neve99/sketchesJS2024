@@ -75,25 +75,27 @@ function getBnw() {
 //   stripe.css('background-color', getRandomColor());
 // }
 
-$('.collection div').hover(function () {
-  // $('.collection div').css('flex', '1')
-  // $(this).css('flex', '150')
-  // $(this).text('the glow')
+$('.collection div').hover(
+  function () {
+    // $('.collection div').css('flex', '1')
+    // $(this).css('flex', '150')
+    // $(this).text('the glow')
 
-  let randomColor = getRandomColor();
-  $(this).css({
-    flex: 600,
-    transition: 'flex 0s ease-in-out',
-    background: getRandomGradientColor(randomColor),
-  });
-},
+    let randomColor = getRandomColor();
+
+    $(this).css({
+      flex: 600,
+      transition: 'flex 0s ease-in-out',
+      background: getRandomGradientColor(randomColor),
+    });
+  },
 
   function () {
     $(this).css({
       flex: 1,
       transition: 'flex 0s ease-in-out',
 
-      background: getRandomGradientColor('red')
+      background: getRandomGradientColor('blue')
     });
   }
 )
