@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.collection {
+  height: 100vh;
+  width: 100vw;
+  background-color: #595959;
+
+  display: flex;
+  overflow: hidden;
+}
+
+.collection div {
+  height: 100%;
+  /* background-color: red; */
+  flex: 1;
+  transition: 0s;
+}
