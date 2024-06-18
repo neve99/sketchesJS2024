@@ -95,7 +95,7 @@ $('.collection div').hover(
       flex: 1,
       transition: 'flex 0s ease-in-out',
 
-      background: getRandomGradientColor('blue')
+      background: getRandomGradientColor('red')
     });
   }
 )
