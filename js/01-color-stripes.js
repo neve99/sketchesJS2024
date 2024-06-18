@@ -57,7 +57,7 @@ function getRandomGradientColor(middleColor) {
 
       hsl(${hue}, ${bottomSaturation}%, ${lightness}%)
   )`;
-  console.log(gradientColor);
+  // console.log(gradientColor);
   return gradientColor;
 }
 
@@ -84,7 +84,7 @@ $('.collection div').hover(
     let randomColor = getRandomColor();
 
     $(this).css({
-      flex: 600,
+      flex: 400,
       transition: 'flex 0s ease-in-out',
       background: getRandomGradientColor(randomColor),
     });
