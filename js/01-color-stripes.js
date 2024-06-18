@@ -4,13 +4,13 @@
 //   return Math.floor(Math.random() * (max - min + 1)) + min;
 // }
 
-for (let i = 0; i <= 100; i++) {
+for (let i = 0; i <= 200; i++) {
   const div = $('<div>', {
     class: `stripe${i}`,
   });
 
   // div.css('background-color', getRandomColor());
-  div.css('background-color', getVibrantColor());
+  div.css('background', getRandomGradientColor('red'));
   // div.css('background-color', getBnw());
   $('.collection').append(div);
 }
@@ -21,7 +21,7 @@ function getRandomColor() {
   for (let i = 0; i < 6; i++) {
     color += letters[Math.floor(Math.random() * 16)];
   }
-  console.log(color);
+  // console.log(color);
   return color;
 }
 
@@ -34,6 +34,31 @@ function getVibrantColor() {
   const rgbColor = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 
   return rgbColor;
+}
+
+
+function getRandomGradientColor(middleColor) {
+  // Random hue for top and bottom colors
+  const hue = Math.floor(Math.random() * 360);
+  const hue2 = Math.floor(Math.random() * 360);
+  const topSaturation = Math.floor(Math.random() * 40) + 60; // 60% to 100% saturation
+  const bottomSaturation = Math.floor(Math.random() * 40) + 60; // 60% to 100% saturation
+  const lightness = 50; // Middle color (white)
+
+  // Generate gradient CSS string
+  const gradientColor = `linear-gradient(
+      to top,
+      hsl(${hue}, ${topSaturation}%, ${lightness}%),
+            hsl(${hue}, ${topSaturation}%, ${lightness}%),
+
+            ${middleColor},
+
+            hsl(${hue}, ${topSaturation}%, ${lightness}%),
+
+      hsl(${hue}, ${bottomSaturation}%, ${lightness}%)
+  )`;
+  console.log(gradientColor);
+  return gradientColor;
 }
 
 function getBnw() {
@@ -51,7 +76,24 @@ function getBnw() {
 // }
 
 $('.collection div').hover(function () {
-  $('.collection div').css('flex', '1')
-  $(this).css('flex', '50')
+  // $('.collection div').css('flex', '1')
+  // $(this).css('flex', '150')
   // $(this).text('the glow')
-})
+
+  let randomColor = getRandomColor();
+  $(this).css({
+    flex: 600,
+    transition: 'flex 0s ease-in-out',
+    background: getRandomGradientColor(randomColor),
+  });
+},
+
+  function () {
+    $(this).css({
+      flex: 1,
+      transition: 'flex 0s ease-in-out',
+
+      background: getRandomGradientColor('red')
+    });
+  }
+)

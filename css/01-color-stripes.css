@@ -20,3 +20,7 @@
   flex: 1;
   transition: 0s;
 }
+
+.collection div:hover {
+  transition: 1s;
+}
